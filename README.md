@@ -1,11 +1,21 @@
-# about grtm 
+# about gotask 
 [![Build Status](https://travis-ci.org/scottkiss/grtm.svg?branch=master)](https://travis-ci.org/scottkiss/grtm)
 
-grtm is a tool to manage golang goroutines.use this can start or stop a long loop goroutine.
+gotask is a tool to manage golang goroutines.use this can start or stop a long loop goroutine.
 
 ## Getting started
 ```bash
-go get github.com/scottkiss/grtm
+go get bigdot123456/gotask
+```
+
+## create repository
+```bash
+echo "# gotask" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/bigdot123456/gotask.git
+git push -u origin master
 ```
 
 ## Create normal goroutine
@@ -15,7 +25,7 @@ package main
 
 import (
         "fmt"
-        "github.com/scottkiss/grtm"
+        "github.com/bigdot123456/gotask"
         "time"
        )
 
@@ -24,7 +34,7 @@ func normal() {
 }
 
 func main() {
-        gm := grtm.NewGrManager()
+        gm := gotask.NewGrManager()
         gm.NewGoroutine("normal", normal)
         fmt.Println("main function")
         time.Sleep(time.Second * time.Duration(5))
@@ -39,7 +49,7 @@ package main
 
 import (
         "fmt"
-        "github.com/scottkiss/grtm"
+        "github.com/bigdot123456/gotask"
         "time"
        )
 
@@ -53,7 +63,7 @@ func funcWithParams(args ...interface{}) {
 }
 
 func main() {
-        gm := grtm.NewGrManager()
+        gm := gotask.NewGrManager()
         gm.NewGoroutine("normal", normal)
         fmt.Println("main function")
         gm.NewGoroutine("funcWithParams", funcWithParams, "hello", "world")
@@ -68,7 +78,7 @@ package main
 
 import (
         "fmt"
-        "github.com/scottkiss/grtm"
+        "github.com/bigdot123456/gotask"
         "time"
        )
 
@@ -78,7 +88,7 @@ func myfunc() {
 }
 
 func main() {
-gm := grtm.NewGrManager()
+gm := gotask.NewGrManager()
         gm.NewLoopGoroutine("myfunc", myfunc)
         fmt.Println("main function")
         time.Sleep(time.Second * time.Duration(40))
