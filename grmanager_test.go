@@ -1,4 +1,4 @@
-package grtm
+package gotask
 
 import (
 	"fmt"
