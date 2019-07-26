@@ -18,6 +18,34 @@ git remote add origin https://github.com/bigdot123456/gotask.git
 git push -u origin master
 ```
 
+## create travis code
+
+Travis CI是国外新兴的开源持续集成构建项目，支持Github项目。使用十分方便。 
+
+使用Github账号登录Travis CI； 
+
+登录之后会自动同步Github项目，选择需要使用Travis CI的项目 
+
+在项目的根目录新增.travis.yml文件，内容如下： 
+
+```bash
+#指定运行环境
+language: golang
+#指定nodejs版本，可以指定多个
+golang:
+  - 1.11
+
+#运行的脚本命令
+script:
+  - go test grmanger
+
+#指定分支，只有指定的分支提交时才会运行脚本
+branches:
+  only:
+    - master
+```
+
+
 ## Create normal goroutine
 
 ```golang
